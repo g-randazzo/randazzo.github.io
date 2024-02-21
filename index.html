@@ -3,27 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gregory Randazzo</title>
+    <title>Welcome to the website of Gregory Randazzo</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
             text-align: center;
-            padding: 50px;
         }
         h1 {
-            color: #333;
+            margin-top: 50px;
+        }
+        #gif-container {
+            margin-top: 30px;
+        }
+        #gif-container img {
+            width: 100%;
+            max-width: 600px; /* Optional: limit maximum width */
+        }
+        #resume-link {
+            display: block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: blue;
+        }
+        #resume-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Website of</h1>
-        <h1>Gregory Randazzo</h1>
+    <h1>Welcome to the website of Gregory Randazzo</h1>
+    <div id="gif-container">
+        <img src="june7.gif" alt="GIF">
     </div>
+    <a href="path/to/your/pdf/resume.pdf" id="resume-link">View my PDF resume</a>
 </body>
 </html>
