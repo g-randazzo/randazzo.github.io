@@ -14,10 +14,14 @@
         }
         #gif-container {
             margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
         }
         #gif-container img {
             width: 100%;
-            max-width: 600px; /* Optional: limit maximum width */
+            max-width: 300px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
         }
         #resume-link {
             display: block;
@@ -32,6 +36,12 @@
 </head>
 <body>
     <h1>Welcome to the website of Gregory Randazzo</h1>
+    <div id="gif-container">
+        <img src="11.png" alt="Panel 1">
+        <img src="12.png" alt="Panel 2">
+        <img src="13.png" alt="Panel 3">
+        <img src="14.png" alt="Panel 4">
+    </div>
     <div id="gif-container">
         <img src="june7.gif" alt="GIF">
     </div>
