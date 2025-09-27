@@ -1,76 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the website of Gregory Randazzo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        h1 {
-            margin-top: 50px;
-        }
-        .image-container {
-            margin-top: 30px;
-        }
-        .image-container img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-        }
-        #resume-link {
-            display: block;
-            margin-top: 30px;
-            text-decoration: none;
-            color: blue;
-        }
-        #resume-link:hover {
-            text-decoration: underline;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gregory Randazzo — Home</title>
+  <style>
+    body {margin:0; font-family: "Trebuchet MS", Verdana, sans-serif; background:#0d0f14; color:#e7f2ff;}
+    .wrap {max-width:960px; margin:0 auto; padding:24px;}
+    header {text-align:center; margin:20px 0;}
+    header h1 {font-size:2.2em; color:#00ffd0; text-shadow:0 0 8px #00ffd0;}
+    nav {margin-top:12px;}
+    nav a {margin:0 6px; text-decoration:none; color:#00a2ff; font-weight:bold;}
+    .cta {display:inline-block; margin-top:16px; padding:14px 22px; background:#00ffd0; color:#061016; font-weight:900; border-radius:12px; text-decoration:none;}
+    .cta:hover {filter:brightness(1.1);}
+    section {margin:40px 0;}
+    .gallery {text-align:center;}
+    .gallery img {max-width:100%; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.45);}
+    .controls {margin-top:12px;}
+    .controls button {all:unset; cursor:pointer; background:#141826; color:#e7f2ff; border-radius:6px; padding:8px 14px; margin:0 6px; border:1px solid #00ffd0;}
+    .controls button:hover {background:#00ffd0; color:#000;}
+    footer {margin-top:40px; text-align:center; color:#9db0c8; font-size:14px;}
+  </style>
 </head>
 <body>
-    <h1>Welcome to the website of Gregory Randazzo</h1>
-    <div class="image-container" id="image11">
-        <img src="11.png" alt="Image 1">
-    </div>
-    <div class="image-container hidden" id="image12">
-        <img src="12.png" alt="Image 2">
-    </div>
-    <div class="image-container hidden" id="image13">
-        <img src="13.png" alt="Image 3">
-    </div>
-    <div class="image-container hidden" id="image14">
-        <img src="14.png" alt="Image 4">
-    </div>
-    <div id="navigation">
-        <button onclick="showImage('image11')">Show Image 11</button>
-        <button onclick="showImage('image12')">Show Image 12</button>
-        <button onclick="showImage('image13')">Show Image 13</button>
-        <button onclick="showImage('image14')">Show Image 14</button>
-    </div>
-    <div class="image-container">
-        <img src="june7.gif" alt="GIF">
-    </div>
-    <a href="resumeFall23.pdf" id="resume-link">View my PDF resume</a>
+  <div class="wrap">
+    <header>
+      <h1>Gregory Randazzo</h1>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="resumeFall23.pdf">Résumé</a>
+      </nav>
+      <a class="cta" href="nyc-heatwaves.html">NYC Heatwaves</a>
+    </header>
 
-    <script>
-        function showImage(imageId) {
-            const images = document.querySelectorAll('.image-container');
-            images.forEach(image => {
-                if (image.id === imageId) {
-                    image.classList.remove('hidden');
-                } else {
-                    image.classList.add('hidden');
-                }
-            });
-        }
-    </script>
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Research on NYC heatwaves, wildfire smoke, and atmospheric science.</p>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <h2>Image Gallery</h2>
+      <img id="galleryImage" src="images/1.jpg" alt="Gallery Image">
+      <div class="controls">
+        <button onclick="prevImage()">◀ Prev</button>
+        <button onclick="nextImage()">Next ▶</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Gregory Randazzo</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const folder = "images/"; // folder path
+    const totalImages = 5; // adjust to number of images in folder
+    let currentIndex = 1;
+
+    function showImage(index){
+      const img = document.getElementById('galleryImage');
+      img.src = folder + index + ".jpg";
+      img.alt = "Gallery Image " + index;
+    }
+
+    function nextImage(){
+      currentIndex++;
+      if(currentIndex > totalImages) currentIndex = 1;
+      showImage(currentIndex);
+    }
+
+    function prevImage(){
+      currentIndex--;
+      if(currentIndex < 1) currentIndex = totalImages;
+      showImage(currentIndex);
+    }
+  </script>
 </body>
 </html>
